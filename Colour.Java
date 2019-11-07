@@ -1,3 +1,21 @@
+public enum Color{
+    Red,
+    Yellow,
+    Green,
+    Blue,
+    White,
+    Orange
+}
+
+public enum Face{
+    Up,
+    Down,
+    Left,
+    Right,
+    Front,
+    Back
+}
+
 public class Colour {
     
     private char    colour;
