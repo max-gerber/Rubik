@@ -54,13 +54,12 @@ public class Cube {
 		cubiePosition[2][2][2] = new Cubie(new Sticker[]{ new Sticker(Colour.White, Face.Down), new Sticker(Colour.Blue, Face.Back), new Sticker(Colour.Orange, Face.Right)}, true, false);
 	}
     
-    public void rotate(char move) {
+    public void rotate(String move) {
         Face previousFaces[];
         Face currentFaces[];
         Cubie face[][] = new Cubie[3][3];
         switch (move) {
-			case 'U':
-				System.out.println("KHJHJHJH");
+			case "U":
                 previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
                 currentFaces = new Face[] {Face.Back, Face.Front, Face.Left, Face.Right};
                 for (int i = 0; i < 3; i++) {
@@ -68,26 +67,289 @@ public class Cube {
                         face[i][j] = cubiePosition[j][2 - i][0];
                     }
 				}
-				face = swap(previousFaces, currentFaces, face);
+				face = swap(previousFaces, currentFaces, face, true);
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 3; j++) {
                         cubiePosition[j][2 - i][0] = face[i][j];
                     }
 				}
                 break;
+			case "U'":
+				previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Right, Face.Left};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[j][2 - i][0];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[j][2 - i][0] = face[i][j];
+					}
+				}
+				break;
+			case "U2":
+				previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Back, Face.Front, Face.Left, Face.Right};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[j][2 - i][0];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[j][2 - i][0] = face[i][j];
+					}
+				}
+				break;
+			case "F":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Right, Face.Left, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[j][0][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[j][0][i] = face[i][j];
+					}
+				}
+				break;
+			case "F'":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Left, Face.Right, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[j][0][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[j][0][i] = face[i][j];
+					}
+				}
+				break;
+			case "F2":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Right, Face.Left, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[j][0][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[j][0][i] = face[i][j];
+					}
+				}
+				break;
+			case "R":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Back, Face.Front, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[2][j][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[2][j][i] = face[i][j];
+					}
+				}
+				break;
+			case "R'":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[2][j][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[2][j][i] = face[i][j];
+					}
+				}
+				break;
+			case "R2":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Back, Face.Front, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[2][j][i];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[2][j][i] = face[i][j];
+					}
+				}
+				break;
+			case "D":
+				previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Right, Face.Left};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2 - j][2];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2 - j][2] = face[i][j];
+					}
+				}
+				break;
+			case "D'":
+				previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Back, Face.Front, Face.Left, Face.Right};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2 - j][2];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2 - j][2] = face[i][j];
+					}
+				}
+				break;
+			case "D2":
+				previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Right, Face.Left};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2 - j][2];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2 - j][2] = face[i][j];
+					}
+				}
+				break;
+			case "B":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Left, Face.Right, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2][j] = face[i][j];
+					}
+				}
+				break;
+			case "B'":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Right, Face.Left, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2][j] = face[i][j];
+					}
+				}
+				break;
+			case "B2":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Left, Face.Right};
+				currentFaces = new Face[] {Face.Left, Face.Right, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[i][2][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[i][2][j] = face[i][j];
+					}
+				}
+				break;
+			case "L":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[0][i][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[0][i][j] = face[i][j];
+					}
+				}
+				break;
+			case "L'":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Back, Face.Front, Face.Up, Face.Down};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[0][i][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, face, false);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[0][i][j] = face[i][j];
+					}
+				}
+				break;
+			case "L2":
+				previousFaces = new Face[] {Face.Up, Face.Down, Face.Front, Face.Back};
+				currentFaces = new Face[] {Face.Front, Face.Back, Face.Down, Face.Up};
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						face[i][j] = cubiePosition[0][i][j];
+					}
+				}
+				face = swap(previousFaces, currentFaces, swap(previousFaces, currentFaces, face, true), true);
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						cubiePosition[0][i][j] = face[i][j];
+					}
+				}
+				break;
             default:
                 break;
         }
 	}
 
-	public Cubie[][] swap(Face previousFaces[], Face currentFaces[], Cubie oldFace[][]) {
+	public Cubie[][] swap(Face previousFaces[], Face currentFaces[], Cubie oldFace[][], boolean clockwise) {
 		Cubie newFace[][] = new Cubie[3][3];
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				newFace[i][j] = oldFace[2 - j][i];
+		if (clockwise) {
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					newFace[i][j] = oldFace[2 - j][i];
+				}
 			}
 		}
-
+		else {
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					newFace[i][j] = oldFace[j][2 - i];
+				}
+			}
+		}
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				int faces = 0;

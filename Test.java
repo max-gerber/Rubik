@@ -18,7 +18,7 @@ public class Test {
             System.out.println("\n");
 		}
         System.out.println("-----------------------");
-        testCube.rotate('U');
+        testCube.rotate("U2");
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				int faces = 1;
@@ -37,18 +37,3 @@ public class Test {
 		}
     }
 }
-
-
-
-
-// [0][0]		[0][2]
-// [0][1]		[1][2]
-// [0][2]		[2][2]
-
-// [1][0]		[0][1]
-// [1][1]		[1][1]
-// [1][2]		[2][1]
-
-// [2][0]		[0][0]
-// [2][1]		[1][0]
-// [2][2]		[2][0]
