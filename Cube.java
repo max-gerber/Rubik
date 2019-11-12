@@ -57,7 +57,8 @@ public class Cube {
     public void rotate(String move) {
         Face previousFaces[];
         Face currentFaces[];
-        Cubie face[][] = new Cubie[3][3];
+		Cubie face[][] = new Cubie[3][3];
+		System.out.println(move + '\n');
         switch (move) {
 			case "U":
                 previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};

@@ -48,23 +48,6 @@ public class Cubie {
 	// 			colors[i].setColor(ncolor);
 	// 	}
 	// }
-
-	public char verticalFace(int x, int y) {
-		if (edge) {
-			if (x == 0) {
-				return 'L';
-			}
-			else if (x == 1) {
-				if (y == 0) {
-					return 'F';
-				}
-				else return 'B';
-			}
-			else return 'R';
-		}
-		return '0';
-	
-	}
 	
 	// public boolean isWhiteCorner() {
 	// 	if (corner) {
