@@ -58,7 +58,8 @@ public class Cube {
         Face previousFaces[];
         Face currentFaces[];
 		Cubie face[][] = new Cubie[3][3];
-		System.out.println(move + '\n');
+		// System.out.println(move + '\n');
+		System.out.println(move);
         switch (move) {
 			case "U":
                 previousFaces = new Face[] {Face.Left, Face.Right, Face.Front, Face.Back};
