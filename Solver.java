@@ -9,11 +9,11 @@ public class Solver {
     }
     public static void main(String[] args) {
         Cube cube = new Cube();
-        // System.out.println("SCRAMBLE\n--------\n");
+        System.out.println("SCRAMBLE\n--------\n");
         cube = scramble(cube, args[0]);
-        // System.out.println("SOLUTION\n--------\n");
+        System.out.println("SOLUTION\n--------\n");
         cube = WhiteCross.solve(cube);
-        cube = WhiteCorners.solve(cube);
+        cube = F2L.solve(cube);
     }
     
 }
