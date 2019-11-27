@@ -434,9 +434,13 @@ public class WhiteCross {
 		return cube;
 	}
 	public static Cube solve(Cube cube) {
+		System.out.println("GREEN EDGE\n");
 		cube = greenFace(cube);
+		System.out.println("ORANGE EDGE\n");
 		cube = orangeFace(cube);
+		System.out.println("RED EDGE\n");
 		cube = redFace(cube);
+		System.out.println("BLUE EDGE\n");
 		cube = blueFace(cube);
 		return cube;
 	}    
