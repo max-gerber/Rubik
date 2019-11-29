@@ -1,5 +1,5 @@
 public class F2L {
-	static Face [] faces = {Face.Right, Face.Front, Face.Left, Face.Back};
+	private static Face [] faces = {Face.Right, Face.Front, Face.Left, Face.Back};
 	private static Cube turn(Cube cube, Face face, int type) {
 		if (type == 0) {
 			if (face == Face.Right) {
@@ -72,20 +72,20 @@ public class F2L {
 			}
 		}
 		if (cornerFace1 != Face.Up && cornerFace2 != Face.Up && cornerFace3 != Face.Up) {
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				for (int k = 0; k < 3; k++) {
-					if (cube.cubiePosition[i][j][k].isEdge()) {
-						for (int f = 0; f < 2; f++) {
-							if (cube.cubiePosition[i][j][k].getStickers()[f].getColour() == colour1 && cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getColour() == colour2) {
-								edgeFace1 = cube.cubiePosition[i][j][k].getStickers()[f].getFace();
-								edgeFace2 = cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getFace();
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					for (int k = 0; k < 3; k++) {
+						if (cube.cubiePosition[i][j][k].isEdge()) {
+							for (int f = 0; f < 2; f++) {
+								if (cube.cubiePosition[i][j][k].getStickers()[f].getColour() == colour1 && cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getColour() == colour2) {
+									edgeFace1 = cube.cubiePosition[i][j][k].getStickers()[f].getFace();
+									edgeFace2 = cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getFace();
+								}
 							}
 						}
 					}
 				}
 			}
-		}
 			return F2L31(cube, cornerFace1, cornerFace2, cornerFace3, edgeFace1, edgeFace2, rotation);
 		}
 		// FIX
@@ -737,14 +737,16 @@ public class F2L {
 		}
 	}
 	private static Cube F2L41(Cube cube, Face cornerFace1, Face cornerFace2, Face cornerFace3, Face edgeFace1, Face edgeFace2, int rotation) {
-		cube = turn(cube, faces[(1 + rotation) % 4], 0);
-		cube.rotate("U'");
-		cube = turn(cube, faces[(1 + rotation) % 4], 1);
-		cube = turn(cube, faces[(2 + rotation) % 4], 1);
-		cube = turn(cube, faces[(3 + rotation) % 4], 1);
-		cube.rotate("U2");
-		cube = turn(cube, faces[(3 + rotation) % 4], 0);
-		cube = turn(cube, faces[(2 + rotation) % 4], 0);
+		if (cornerFace1 == faces[(1 + rotation) % 4] && cornerFace2 == Face.Down && cornerFace3 == faces[(2 + rotation) % 4]  && edgeFace1 == faces[(1 + rotation) % 4] && edgeFace2 == faces[(2 + rotation) % 4]) {
+			cube = turn(cube, faces[(1 + rotation) % 4], 0);
+			cube.rotate("U'");
+			cube = turn(cube, faces[(1 + rotation) % 4], 1);
+			cube = turn(cube, faces[(2 + rotation) % 4], 1);
+			cube = turn(cube, faces[(3 + rotation) % 4], 1);
+			cube.rotate("U2");
+			cube = turn(cube, faces[(3 + rotation) % 4], 0);
+			cube = turn(cube, faces[(2 + rotation) % 4], 0);
+		}
 		return cube;
 	}
 	public static Cube solve(Cube cube) {

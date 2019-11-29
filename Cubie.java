@@ -22,13 +22,14 @@ public class Cubie {
 		return stickers;
 	}
 	
-	// public char getFaceOfColor(char color) {
-	// 	for (int i = 0; i < colors.length; i++) {
-	// 		if (colors[i].getColor() == color)
-	// 			return colors[i].getFace();
-	// 	}
-	// 	return '0';
-	// }
+	public Face getFaceOfColor(Colour colour) {
+		for (int i = 0; i < stickers.length; i++) {
+			if (stickers[i].getColour() == colour) {
+				return stickers[i].getFace();
+			}
+		}
+		return Face.NULL;
+	}
 	
 	// public char getColorOfFace(char face) {
 	// 	for (int i = 0; i < colors.length; i++) {
