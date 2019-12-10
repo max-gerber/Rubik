@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Cube {
 
     public Cubie[][][] cubiePosition = new Cubie[3][3][3];

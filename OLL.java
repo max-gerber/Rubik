@@ -1160,7 +1160,7 @@ public class OLL {
 		}
 		return OLL30(cube);
 	}
-	private static Cube OLL(Cube cube) {
+	private static Cube OLL30(Cube cube) {
 		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Up &&
 			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
 			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Up &&
@@ -1301,8 +1301,9 @@ public class OLL {
 			cube.rotate("F2");
 			return cube;
 		}
-		cube.rotate("U");
-		return OLL1(cube);
+		System.out.println("Fail");
+		// cube.rotate("U");
+		return cube;
 	}
 	public static Cube solve(Cube cube) {
 		for (int i = 0; i < 3; i++) {

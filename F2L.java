@@ -56,36 +56,32 @@ public class F2L {
 			for (int j = 0; j < 3; j++) {
 				for (int k = 0; k < 3; k++) {
 					if (cube.cubiePosition[i][j][k].isCorner()) {
-						for (int f = 0; f < 3; f++) {
-							if (cube.cubiePosition[i][j][k].getStickers()[f].getColour() == Colour.White
-								&& ((cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getColour() == colour1
-								&& cube.cubiePosition[i][j][k].getStickers()[(f + 2) % 3].getColour() == colour2)
-								|| (cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getColour() == colour2
-								&& cube.cubiePosition[i][j][k].getStickers()[(f + 2) % 3].getColour() == colour1))) {
-									cornerFace1 = cube.cubiePosition[i][j][k].getStickers()[f].getFace();
-									cornerFace2 = cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getColour() == colour1 ? cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getFace() : cube.cubiePosition[i][j][k].getStickers()[(f + 2) % 3].getFace();
-									cornerFace3 = cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getColour() == colour2 ? cube.cubiePosition[i][j][k].getStickers()[(f + 1) % 3].getFace() : cube.cubiePosition[i][j][k].getStickers()[(f + 2) % 3].getFace();
-							}
+						if (cube.cubiePosition[i][j][k].getFaceOfColour(Colour.White) != Face.NULL &&
+						cube.cubiePosition[i][j][k].getFaceOfColour(colour1) != Face.NULL &&
+						cube.cubiePosition[i][j][k].getFaceOfColour(colour2) != Face.NULL) {
+								cornerFace1 = cube.cubiePosition[i][j][k].getFaceOfColour(Colour.White);
+								cornerFace2 = cube.cubiePosition[i][j][k].getFaceOfColour(colour1);
+								cornerFace3 = cube.cubiePosition[i][j][k].getFaceOfColour(colour2);
 						}
 					}
 				}
 			}
 		}
+		System.out.println(cornerFace1 + ", " + cornerFace2 + ", " + cornerFace3);
 		if (cornerFace1 != Face.Up && cornerFace2 != Face.Up && cornerFace3 != Face.Up) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					for (int k = 0; k < 3; k++) {
 						if (cube.cubiePosition[i][j][k].isEdge()) {
-							for (int f = 0; f < 2; f++) {
-								if (cube.cubiePosition[i][j][k].getStickers()[f].getColour() == colour1 && cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getColour() == colour2) {
-									edgeFace1 = cube.cubiePosition[i][j][k].getStickers()[f].getFace();
-									edgeFace2 = cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getFace();
-								}
+							if (cube.cubiePosition[i][j][k].getFaceOfColour(colour1) != Face.NULL && cube.cubiePosition[i][j][k].getFaceOfColour(colour2) != Face.NULL) {
+								edgeFace1 = cube.cubiePosition[i][j][k].getFaceOfColour(colour1);
+								edgeFace2 = cube.cubiePosition[i][j][k].getFaceOfColour(colour2);
 							}
 						}
 					}
 				}
 			}
+			System.out.println(edgeFace1 + ", " + edgeFace2);
 			return F2L31(cube, cornerFace1, cornerFace2, cornerFace3, edgeFace1, edgeFace2, rotation);
 		}
 		// FIX
