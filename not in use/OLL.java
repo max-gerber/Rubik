@@ -2,14 +2,14 @@ public class OLL {
 	private static Cubie[][] yellowFace = new Cubie[3][3];
 	//	No Edges Flipped Correctly
 	private static Cube OLL1(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Right) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Right) {
 			cube.rotate("R");
 			cube.rotate("U2");
 			cube.rotate("R2");
@@ -26,14 +26,14 @@ public class OLL {
 		return OLL2(cube);
 	}
 	private static Cube OLL2(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Front) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Front) {
 			cube.rotate("F");
 			cube.rotate("R");
 			cube.rotate("U");
@@ -50,14 +50,14 @@ public class OLL {
 		return OLL3(cube);
 	}
 	private static Cube OLL3(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Up &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Front) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Up &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Front) {
 			cube.rotate("R");
 			cube.rotate("L2");
 			cube.rotate("F");
@@ -74,14 +74,14 @@ public class OLL {
 		return OLL4(cube);
 	}
 	private static Cube OLL4(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Up &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Right) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Up &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Right) {
 			cube.rotate("F'");
 			cube.rotate("B");
 			cube.rotate("L'");
@@ -98,14 +98,14 @@ public class OLL {
 		return OLL17(cube);
 	}
 	private static Cube OLL17(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Up &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Up) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Up &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Up) {
 			cube.rotate("F'");
 			cube.rotate("R");
 			cube.rotate("U2");
@@ -122,14 +122,14 @@ public class OLL {
 		return OLL18(cube);
 	}
 	private static Cube OLL18(Cube cube) {
-		if (yellowFace[0][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[0][1].getFaceOfColor(Colour.Yellow) == Face.Back &&
-			yellowFace[0][2].getFaceOfColor(Colour.Yellow) == Face.Up &&
-			yellowFace[1][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[1][2].getFaceOfColor(Colour.Yellow) == Face.Right &&
-			yellowFace[2][0].getFaceOfColor(Colour.Yellow) == Face.Left &&
-			yellowFace[2][1].getFaceOfColor(Colour.Yellow) == Face.Front &&
-			yellowFace[2][2].getFaceOfColor(Colour.Yellow) == Face.Up) {
+		if (yellowFace[0][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[0][1].getFaceOfColour(Colour.Yellow) == Face.Back &&
+			yellowFace[0][2].getFaceOfColour(Colour.Yellow) == Face.Up &&
+			yellowFace[1][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[1][2].getFaceOfColour(Colour.Yellow) == Face.Right &&
+			yellowFace[2][0].getFaceOfColour(Colour.Yellow) == Face.Left &&
+			yellowFace[2][1].getFaceOfColour(Colour.Yellow) == Face.Front &&
+			yellowFace[2][2].getFaceOfColour(Colour.Yellow) == Face.Up) {
 			cube.rotate("R");
 			cube.rotate("B");
 			cube.rotate("U");

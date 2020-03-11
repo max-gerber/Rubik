@@ -68,7 +68,45 @@ public class F2L {
 			}
 		}
 		System.out.println(cornerFace1 + ", " + cornerFace2 + ", " + cornerFace3);
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				for (int k = 0; k < 3; k++) {
+					if (cube.cubiePosition[i][j][k].isEdge()) {
+						if (cube.cubiePosition[i][j][k].getFaceOfColour(colour1) != Face.NULL && cube.cubiePosition[i][j][k].getFaceOfColour(colour2) != Face.NULL) {
+							edgeFace1 = cube.cubiePosition[i][j][k].getFaceOfColour(colour1);
+							edgeFace2 = cube.cubiePosition[i][j][k].getFaceOfColour(colour2);
+						}
+					}
+				}
+			}
+		}
+		System.out.println(edgeFace1 + ", " + edgeFace2);
+		// NEED TO FIX
 		if (cornerFace1 != Face.Up && cornerFace2 != Face.Up && cornerFace3 != Face.Up) {
+			return F2L31(cube, cornerFace1, cornerFace2, cornerFace3, edgeFace1, edgeFace2, rotation);
+		}
+		// Put edge cubie in top face
+		if (edgeFace1 != Face.Up && edgeFace2 != Face.Up) {
+			if ((edgeFace1 == Face.Right && edgeFace2 == Face.Front) || (edgeFace1 == Face.Front && edgeFace2 == Face.Right)) {
+				cube.rotate("R");
+				cube.rotate("U");
+				cube.rotate("R'");
+			}
+			else if ((edgeFace1 == Face.Right && edgeFace2 == Face.Back) || (edgeFace1 == Face.Back && edgeFace2 == Face.Right)) {
+				cube.rotate("R'");
+				cube.rotate("U");
+				cube.rotate("R");
+			}
+			else if ((edgeFace1 == Face.Left && edgeFace2 == Face.Back) || (edgeFace1 == Face.Back && edgeFace2 == Face.Left)) {
+				cube.rotate("L");
+				cube.rotate("U");
+				cube.rotate("L'");
+			}
+			else {
+				cube.rotate("L'");
+				cube.rotate("U");
+				cube.rotate("L");
+			}
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					for (int k = 0; k < 3; k++) {
@@ -82,9 +120,24 @@ public class F2L {
 				}
 			}
 			System.out.println(edgeFace1 + ", " + edgeFace2);
-			return F2L31(cube, cornerFace1, cornerFace2, cornerFace3, edgeFace1, edgeFace2, rotation);
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					for (int k = 0; k < 3; k++) {
+						if (cube.cubiePosition[i][j][k].isCorner()) {
+							if (cube.cubiePosition[i][j][k].getFaceOfColour(Colour.White) != Face.NULL &&
+							cube.cubiePosition[i][j][k].getFaceOfColour(colour1) != Face.NULL &&
+							cube.cubiePosition[i][j][k].getFaceOfColour(colour2) != Face.NULL) {
+									cornerFace1 = cube.cubiePosition[i][j][k].getFaceOfColour(Colour.White);
+									cornerFace2 = cube.cubiePosition[i][j][k].getFaceOfColour(colour1);
+									cornerFace3 = cube.cubiePosition[i][j][k].getFaceOfColour(colour2);
+							}
+						}
+					}
+				}
+			}
+			System.out.println(cornerFace1 + ", " + cornerFace2 + ", " + cornerFace3);
 		}
-		// FIX
+		// Position corner cubie above final position
 		while (((cornerFace1 == Face.Up || cornerFace2 == Face.Up || cornerFace3 == Face.Up) && (cornerFace1 == faces[(2 + rotation) % 4] || cornerFace2 == faces[(2 + rotation) % 4] || cornerFace3 == faces[(2 + rotation) % 4]) && (cornerFace1 == faces[(1 + rotation) % 4] || cornerFace2 == faces[(1 + rotation) % 4] || cornerFace3 == faces[(1 + rotation) % 4])) == false) {
 			cube.rotate("U");
 			Face [] previousFaces = {Face.Right, Face.Front, Face.Left, Face.Back};
@@ -108,21 +161,7 @@ public class F2L {
 				}
 			}
 		}
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				for (int k = 0; k < 3; k++) {
-					if (cube.cubiePosition[i][j][k].isEdge()) {
-						for (int f = 0; f < 2; f++) {
-							if (cube.cubiePosition[i][j][k].getStickers()[f].getColour() == colour1 && cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getColour() == colour2) {
-								edgeFace1 = cube.cubiePosition[i][j][k].getStickers()[f].getFace();
-								edgeFace2 = cube.cubiePosition[i][j][k].getStickers()[Math.abs(f - 1)].getFace();
-							}
-						}
-					}
-				}
-			}
-		}
-		// Solved
+		// NEED TO FIX??
 		if (cornerFace1 == Face.Down && cornerFace2 == faces[(2 + rotation) % 4] && cornerFace3 == faces[(1 + rotation) % 4] && edgeFace1 == faces[(2 + rotation) % 4] && edgeFace2 == faces[(1 + rotation) % 4]) {
 			return cube;
 		}
@@ -253,6 +292,7 @@ public class F2L {
 	}
 	private static Cube F2L10(Cube cube, Face cornerFace1, Face cornerFace2, Face cornerFace3, Face edgeFace1, Face edgeFace2, int rotation) {
 		if (cornerFace1 == faces[(1 + rotation) % 4] && cornerFace2 == faces[(2 + rotation) % 4] && cornerFace3 == Face.Up && edgeFace1 == Face.Up && edgeFace2 == faces[(3 + rotation) % 4]) {
+			System.out.println(">>>");
 			cube = turn(cube, faces[(2 + rotation) % 4], 2);
 			cube.rotate("U'");
 			cube = turn(cube, faces[(3 + rotation) % 4], 1);

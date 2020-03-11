@@ -22,7 +22,7 @@ public class Cubie {
 		return stickers;
 	}
 	
-	public Face getFaceOfColor(Colour colour) {
+	public Face getFaceOfColour(Colour colour) {
 		for (int i = 0; i < stickers.length; i++) {
 			if (stickers[i].getColour() == colour) {
 				return stickers[i].getFace();

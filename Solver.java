@@ -16,8 +16,8 @@ public class Solver {
         cube = WhiteCross.solve(cube);
 		System.out.println("FIRST TWO LAYERS\n");
         cube = F2L.solve(cube);
-        System.out.println("ORIENTATION OF LAST LAYER");
-        cube = OLL.solve(cube);
+        // System.out.println("ORIENTATION OF LAST LAYER");
+        // cube = OLL.solve(cube);
     }
     
 }
